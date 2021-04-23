@@ -32,6 +32,8 @@ private:
 public:
     void showWarningTemp(const QString & str);
     void showWarningHum(const QString & str);
+    void setMaxTem(int tem);
+    void setMaxHum(int hum);
 
 public slots:
     void updateTime(const QString &str);
@@ -41,6 +43,7 @@ public slots:
 private:
     void showAttentionTemp(const QString & str);
     void showAttentionHum(const QString & str);
+
 
 
 

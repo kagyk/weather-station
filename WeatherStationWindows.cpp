@@ -86,13 +86,23 @@ void WeatherStationWindows::showAttentionHum(const QString &str)
 
 void WeatherStationWindows::showWarningTemp(const QString &str)
 {
-    this->maxTem=str.toInt();
+
     this->ui->warningTempLabel->setText(str);
 }
 
 void WeatherStationWindows::showWarningHum(const QString &str)
 {
-    this->maxHum=str.toInt();
+
     this->ui->warningHumidityLabel->setText(str);
+}
+
+void WeatherStationWindows::setMaxTem(int tem)
+{
+    this->maxTem=tem;
+}
+
+void WeatherStationWindows::setMaxHum(int hum)
+{
+    this->maxHum=hum;
 }
 

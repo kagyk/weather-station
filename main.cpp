@@ -89,8 +89,10 @@ int main(int argc, char *argv[])
             if ( configFile.getHumidity() > 0 )
             {
                 w.showWarningHum(QString("Установлен лиминт влажности ")+QString().setNum(configFile.getHumidity())+QString(" %"));
+                w.setMaxHum(configFile.getHumidity());
             }
             w.showWarningTemp(QString("Установлен лиминт температуры ")+QString().setNum(configFile.getTemp())+QString("⁰C"));
+            w.setMaxTem(configFile.getTemp());
             w.show();
 
             QObject::connect( &timer, SIGNAL(showTime(const QString &)), &w, SLOT(updateTime(const QString&)) );
