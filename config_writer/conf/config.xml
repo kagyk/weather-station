@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<config>
+    <max_temperature>20</max_temperature>
+    <max_humidity>46</max_humidity>
+</config>
