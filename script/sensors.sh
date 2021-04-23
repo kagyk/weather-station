@@ -38,8 +38,8 @@ generate_xml()
     TEMP=$(rnd 0 100)
     data="<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>
     <config>
-        <max_temperature>$TEMP</max_temperature>
-        <max_humidity>$HUMIDITY</max_humidity>
+        <temperature>$TEMP</temperature>
+        <humidity>$HUMIDITY</humidity>
     </config>"
     echo "$data"
 }

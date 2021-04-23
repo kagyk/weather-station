@@ -26,20 +26,20 @@ int main(int argc, char *argv[])
     QApplication::setApplicationName("Weather Station");
     QApplication::setApplicationVersion("0.1");
 
-    system("./script/sensors.sh &"); //запуск подыгрывающего скрипта
-
     QCommandLineParser parser;
     parser.setApplicationDescription("Weather Station");
-    parser.setApplicationDescription("Программа метиостанция предназначена для вывода показаний температуры и влажности на экран, а так же для оповещения пользователя о превышение температуры и влажности установленного лимита");
+    parser.setApplicationDescription("Программа метеостанция предназначена для вывода показаний температуры и влажности на экран, а так же для оповещения пользователя о превышение температуры и влажности установленного лимита");
 
-    QCommandLineOption showGuiOpt("show", QApplication::translate("main", "Запустить метиостацию"));
+    QCommandLineOption showGuiOpt("show", QApplication::translate("main", "Запустить метеостанцию"));
     parser.addOption(showGuiOpt);
 
-    QCommandLineOption tempLimitOpt("set-limit-temp", QApplication::translate("main", "Установить значение тепературы, при привышение которой происходит оповещение пользователя"),
+    QCommandLineOption tempLimitOpt("set-limit-temp",
+                                    QApplication::translate("main", "Установить значение температуры, при превышение которой происходит оповещение пользователя"),
                                     QApplication::translate("main", "temp"));
     parser.addOption(tempLimitOpt);
 
-    QCommandLineOption humLimitOpt("set-limit-hum", QApplication::translate("main", "Установить значение влажности, при привышение которой происходит оповещение пользователя"),
+    QCommandLineOption humLimitOpt("set-limit-hum",
+                                   QApplication::translate("main", "Установить значение влажности, при превышение которой происходит оповещение пользователя"),
                                    QApplication::translate("main", "humidity"));
     parser.addOption(humLimitOpt);
 
@@ -84,14 +84,15 @@ int main(int argc, char *argv[])
                 cout << "Ошибка: " << "Конфигурационный файл " << setupFile.fileName().toStdString() << " не найден !!!!" << endl;
                 exit(1);
             }
+            system("./script/sensors.sh &"); //запуск подыгрывающего скрипта
             WeatherStationWindows w;
             Clock timer;
             if ( configFile.getHumidity() > 0 )
             {
-                w.showWarningHum(QString("Установлен лиминт влажности ")+QString().setNum(configFile.getHumidity())+QString(" %"));
+                w.showWarningHum(QString("Установлен лимит влажности ")+QString().setNum(configFile.getHumidity())+QString(" %"));
                 w.setMaxHum(configFile.getHumidity());
             }
-            w.showWarningTemp(QString("Установлен лиминт температуры ")+QString().setNum(configFile.getTemp())+QString("⁰C"));
+            w.showWarningTemp(QString("Установлен лимит температуры ")+QString().setNum(configFile.getTemp())+QString("⁰C"));
             w.setMaxTem(configFile.getTemp());
             w.show();
 

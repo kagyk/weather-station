@@ -41,7 +41,7 @@ void WeatherStationWindows::updateSensorData(QByteArray buff)
         case QXmlStreamReader::StartDocument:
             break;
         case QXmlStreamReader::StartElement:
-            if (xml.name() == "max_temperature")
+            if (xml.name() == "temperature")
             {
                 xml.readNext();
                 QString val=xml.text().toString();
@@ -49,7 +49,7 @@ void WeatherStationWindows::updateSensorData(QByteArray buff)
                 this->showAttentionTemp(val);
 
             }
-            if (xml.name() == "max_humidity")
+            if (xml.name() == "humidity")
             {
                 xml.readNext();
                 QString val=xml.text().toString();

@@ -54,23 +54,23 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="main.cpp" line="35"/>
-        <source>Запустить метиостацию</source>
+        <location filename="main.cpp" line="33"/>
+        <source>Запустить метеостанцию</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="37"/>
+        <source>Установить значение температуры, при превышение которой происходит оповещение пользователя</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="main.cpp" line="38"/>
-        <source>Установить значение тепературы, при привышение которой происходит оповещение пользователя</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="main.cpp" line="39"/>
         <source>temp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="main.cpp" line="42"/>
-        <source>Установить значение влажности, при привышение которой происходит оповещение пользователя</source>
+        <source>Установить значение влажности, при превышение которой происходит оповещение пользователя</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
